@@ -77,6 +77,10 @@ function draw() {
 		currentGeneration.html("Current Generation: " + currentGenerationCounter);
 	}
 
+	if (population.isDead()) {
+		count = lifeSpan;
+	}
+
 	countSuccess.html("Success Count: " + successCountCounter);
 	successRate.html("Success Rate: " + (successCountCounter / popSize * 100).toFixed(2) + "%");
 	if (count == lifeSpan) {
@@ -147,6 +151,15 @@ function Population() {
 		this.rockets = newRockets;
 	}
 
+	this.isDead = function() {
+		for (var i = 0; i < this.rockets.length; i++) {
+			if (!this.rockets[i].isDone()) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	this.run = function() {
 		for (var i=0; i<this.rockets.length; i++) {
 				this.rockets[i].update();
@@ -193,9 +206,13 @@ function Rocket(dna) {
 	this.pos = createVector(width/2, height);
 	this.vel = createVector();
 	this.acc = createVector();
+	//this.hu = random(255);
+	this.hu = random(255);
 	this.completed = false;
 	this.crashed = false;
 	this.flagOfCount = false;
+	this.alreadyExploded = false;
+	this.explosionIsAlive = true;
 
 	this.explosion;
 
@@ -258,18 +275,47 @@ function Rocket(dna) {
 			successCountCounter++;
 		}
 
+		if (this.crashed && !this.alreadyExploded) {
+			this.alreadyExploded = true;
+			this.explosion = new Explosion(this.pos.x, this.pos.y, this.hu);
+		}
+		if (this.alreadyExploded) {
+			if (this.explosionIsAlive) {
+				if (this.explosion.isDone()) {
+					this.explosion = [];
+					this.explosionIsAlive = false;
+				} else {
+					this.explosion.update();
+				}
+			}
+		}
 	}
 
+	this.isDone = function() {
+		//if (this.alreadyExploded) {
+			//return this.explosion.isDone();
+		//}
+		//return false;
+		if (this.alreadyExploded) {
+			return this.explosionIsAlive == false;
+		}
+		return false;
+	}
 
 	this.show = function() {
+		if (!this.alreadyExploded) {
 			push();
 			noStroke();
-			fill(220, 80, 20);
+			fill(this.hu, 255, 255);
 			translate(this.pos.x, this.pos.y);
 			rotate(this.vel.heading());
-			//triangle(0, -4, 15, 0, 0, 4);
-			rectMode(CENTER);
-			rect(0, 0, 25, 5);
+			triangle(0, -4, 15, 0, 0, 4);
 			pop();
+		} else {
+			colorMode(HSB);
+			if (this.explosionIsAlive) {
+				this.explosion.show();
+			}
+		}
 	}
 }
