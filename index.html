@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Smart Rockets !</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- P5 Library -->
+    <script src="p5/p5.min.js"></script>
+    <script src="p5/addons/p5.dom.min.js"></script>
+    <script src="p5/addons/p5.sound.min.js"></script>
+		<script src="sketch.js"></script>
+
+  </head>
+	<body style=""> <!--padding-top:60px; -->
+		<!-- <nav class="navbar navbar-inverse" >
+			<h4 style="color:lightblue;text-align:center">Simulation</h4>
+		</nav>
+		-->
+		<div class="container-fluid" style="margin-top:10px">
+			<div class="col-sm-3" style="margin-right:40px;margin-left:20px;padding:0px">
+				<div class="well" style="margin:0px;padding:7px;margin-bottom:10px">
+						<h3 class="text-center" style="margin:0px;margin-bottom:10px;margin-top:5px">Simulation Settings</h3>
+						<hr style="margin:0px;padding:0px;margin-bottom:10px">
+						<form class="form-horizontal" style="margin:0px">
+							<div class="form-group">
+								<label class="control-label col-sm-6">Population Size:</label>
+								<input id="populationSize" class="text-center" value="50">
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-6">Propulsion:</label>
+								<input id="maxForce" class="text-center" value="0.3">
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-6">Life Span:</label>
+								<input id="lifeSpan" class="text-center" value="400">
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-6">Activate Mutation:</label>
+								<input id="activateMutation" class="text-center" value="true">
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-6">Mutation Rate:</label>
+								<input id="mutationRate" class="text-center" value="0.01">
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-6">Fitness Multiplier:</label>
+								<input id="fitnessMultiplier" class="text-center" value="1">
+							</div>
+							<hr style="margin:0px;padding:0px;margin-bottom:10px">
+							<div class="text-center">
+								<input class="btn btn-primary" type="button" onclick="reloadSimulation()" value="Restart Simulation">
+							</div>
+						</form>
+				</div>
+				<div class="well" style="margin:0px">
+						<h3 class="text-center" style="margin:0px;margin-bottom:10px">Simulation Status</h3>
+						<hr style="margin:0px;padding:0px;margin-bottom:10px">
+
+						<div id="currentGeneration"></div>
+						<div id="countSuccess"></div>
+						<div id="successRate"></div>
+						<div id="currentAge"></div>
+
+				</div>
+			</div>
+
+			<div id="simulationCanvas" class="col-sm-8 well text-center" style="padding:10px">
+			</div>
+    </div>
+
+		<!-- <footer class="container-fluid" style="background:black;">
+			<p>&copy; Company 2017</p>
+		</footer>
+		-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
