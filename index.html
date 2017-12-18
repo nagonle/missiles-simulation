@@ -10,21 +10,17 @@
     <!-- Bootstrap -->
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 		<!-- P5 Library -->
-    <script src="p5/p5.min.js"></script>
-    <script src="p5/addons/p5.dom.min.js"></script>
-    <script src="p5/addons/p5.sound.min.js"></script>
-		<script src="sketch.js"></script>
-		<script src="particle.js"></script>
-		<script src="explosion.js"></script>
 
   </head>
-	<body style=""> <!--padding-top:60px; -->
+	<body style="margin:0px;padding:0px"> <!--padding-top:60px; -->
 		<!-- <nav class="navbar navbar-inverse" >
 			<h4 style="color:lightblue;text-align:center">Simulation</h4>
 		</nav>
 		-->
-		<div class="container-fluid" style="margin-top:10px">
-			<div class="col-sm-3" style="margin-right:40px;margin-left:20px;padding:0px">
+		<div class="container-fluid" style="margin:0px;margin-top:10px;padding:0px">
+
+	<div class="row" style="margin:0px;padding:0px">
+			<div class="col-lg-3" style="margin-right:3px;margin-left:3px;padding:0px">
 				<div class="well" style="margin:0px;padding:7px;margin-bottom:10px">
 						<h3 class="text-center" style="margin:0px;margin-bottom:10px;margin-top:5px">Simulation Settings</h3>
 						<hr style="margin:0px;padding:0px;margin-bottom:10px">
@@ -35,23 +31,23 @@
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-6">Propulsion:</label>
-								<input id="maxForce" class="text-center" value="0.3">
+								<input id="maxForce" class="text-center" value="0.2">
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-6">Life Span:</label>
-								<input id="lifeSpan" class="text-center" value="400">
+								<input id="lifeSpan" class="text-center" value="5000">
 							</div>
 							<div class="form-group">
-								<label class="control-label col-sm-6">Activate Mutation:</label>
+								<label class="control-label col-sm-6">Mutation Enabled:</label>
 								<input id="activateMutation" class="text-center" value="true">
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-6">Mutation Rate:</label>
-								<input id="mutationRate" class="text-center" value="0.01">
+								<input id="mutationRate" class="text-center" value="0.001">
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-6">Fitness Multiplier:</label>
-								<input id="fitnessMultiplier" class="text-center" value="1">
+								<input id="fitnessMultiplier" class="text-center" value="5">
 							</div>
 							<hr style="margin:0px;padding:0px;margin-bottom:10px">
 							<div class="text-center">
@@ -59,21 +55,38 @@
 							</div>
 						</form>
 				</div>
-				<div class="well" style="margin:0px">
+				<div class="well" style="margin:0px;height:238px">
 						<h3 class="text-center" style="margin:0px;margin-bottom:10px">Simulation Status</h3>
 						<hr style="margin:0px;padding:0px;margin-bottom:10px">
 
+					<div class="col-lg-2" style="margin:0px;padding:3px;width:50%;border-right:1px solid lightgray">
+						<div id="previousGeneration"></div>
+						<div id="previousCountSuccess"></div>
+						<div id="previousCountFailure"></div>
+						<div id="previousSuccessRate"></div>
+						<div id="previousAge"></div>
+					</div>
+
+					<div class="col-lg-2" style="margin:0px;padding:3px;width:50%;padding-left:9px">
 						<div id="currentGeneration"></div>
 						<div id="countSuccess"></div>
+						<div id="countFailure"></div>
 						<div id="successRate"></div>
 						<div id="currentAge"></div>
+					</div>
 
 				</div>
-			</div>
+			</div> <!-- end col-lg-3 -->
 
-			<div id="simulationCanvas" class="col-sm-8 well text-center" style="padding:10px">
+		 	<div id="simulationCanvas" class="col-lg-8 well text-center" style="width:74%;padding:3px;margin:0px">
 			</div>
+</div>
+
     </div>
+
+			<!-- <div id="simulationCanvas" class="col-sm-8 well text-center" style="padding:10px">
+			</div>
+			-->
 
 		<!-- <footer class="container-fluid" style="background:black;">
 			<p>&copy; Company 2017</p>
@@ -83,5 +96,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="p5/p5.min.js"></script>
+    <script src="p5/addons/p5.dom.min.js"></script>
+    <script src="p5/addons/p5.sound.min.js"></script>
+		<script src="sketch.js"></script>
+		<script src="particle.js"></script>
+		<script src="explosion.js"></script>
+		<script src="DNA.js"></script>
+		<script src="map.js"></script>
+		<script src="population.js"></script>
+		<script src="rocket.js"></script>
   </body>
 </html>

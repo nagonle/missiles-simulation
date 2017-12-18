@@ -14,8 +14,6 @@ function Particle(x, y, hu) {
 	}
 
 	this.update = function() {
-		//this.lifespan -= 3;
-
 		this.vel.add(this.acc);
 		this.pos.add(this.vel);
 		this.acc.mult(0);
@@ -23,11 +21,12 @@ function Particle(x, y, hu) {
 
 
 	this.show = function() {
+		push();
 		colorMode(HSB);
-		noStroke();
 		strokeWeight(2);
 		stroke(this.hu, 255, 255, this.lifespan);
 		point(this.pos.x, this.pos.y);
+		pop();
 	}
 
 }

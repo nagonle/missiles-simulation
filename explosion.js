@@ -3,7 +3,7 @@ function Explosion(x, y, hu) {
 	this.pos = createVector(x, y);
 	this.particles = [];
 	this.hu = hu;
-	this.numberOfParticles = 30;
+	this.numberOfParticles = 15;
 
 	this.lifespan = 120;
 
